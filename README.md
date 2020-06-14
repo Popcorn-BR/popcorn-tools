@@ -103,11 +103,11 @@ const valid = popcorn.cpfValidate(cpf);
 
 **Arguments**
 
-| Argument | Type    | Options           |
-|----------|---------|-------------------|
-|`array`   |*array*  | 'Any search query'|
-|`value`   |*string*  | 'Any search query'|
-|`param`   |*string*  | 'Any search query'|
+| Argument | Type    |
+|----------|---------|
+|`array`   |*array*  |
+|`value`   |*string* |
+|`param`   |*string* |
 
 
 **Example**
