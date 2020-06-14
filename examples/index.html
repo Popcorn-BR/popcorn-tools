@@ -28,41 +28,29 @@
   </style>
 </head>
 
-<body>
-  <div>
-    <table id="ufs">
-      <thead>
-        <th>Sigla</th>
-        <th>Nome</th>
-      </thead>
-      <tbody></tbody>
-    </table>
-    <ul id="municipios">
-
-    </ul>
-  </div>
-  <script src="../dist/popcorn-ibge.umd.js"></script>
-  <script>
-    const ibge = new PopcornIBGE()
-
-    async function getData() {
-
-      const uf = await ibge.ufs()
-      const municipios = await ibge.municipios('mg')
-
-      document.querySelector('#ufs tbody').innerHTML = uf.map(({ sigla, nome }) => `
-          <tr>
-            <td>${sigla}</td>
-            <td>${nome}</td>
-          </tr>
-      `).join('')
-
-      document.querySelector('#municipios').innerHTML = municipios.map(({ nome }) => `<li>${nome}</li>`).join('');
-    }
-
-    getData()
-
+< <script src="../dist/popcorn-tools.umd.js">
   </script>
-</body>
+  <script>
+    const data = [
+      {value: 'Banana'},
+      {value: 'Maçã'},
+      {value: 'Laranja'},
+      {value: 'Morango'},
+      {value: 'Abacaxi'},
+      {value: 'Mamão'},
+    ]
+    const { currencyFormat, cpfValidate, filter, measureFormat } = PopcornTools
+    console.log('currencyFormat', currencyFormat({ value: 10 }))
+    console.log('cpfValidate', cpfValidate('10668552697'))
+    console.log('filter', filter(data, 'm', 'value'))
+    console.log('measureFormat', measureFormat(100))
+    console.log('measureFormat', measureFormat(1000))
+    console.log('measureFormat', measureFormat(1000000))
+    console.log('measureFormat', measureFormat(1000000000))
+    console.log('measureFormat', measureFormat(1000000000000))
+    console.log('measureFormat', measureFormat(1000000000000000))
+    console.log('measureFormat', measureFormat(1000000000000000000))
+  </script>
+  </body>
 
 </html>

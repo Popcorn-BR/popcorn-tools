@@ -4,4 +4,4 @@ export default function formatPrice({ value, style = 'pt-BR', currency = 'BRL' }
     currency,
   });
   return format(value);
-};
+}
