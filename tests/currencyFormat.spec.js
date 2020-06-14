@@ -29,5 +29,9 @@ describe('Currency format', () => {
       const currency = currencyFormat({ value: 10 });
       expect(currency).to.have.been.eqls('R$10.00');
     });
+    it('should call validated empty value', () => {
+      const currency = currencyFormat();
+      expect(currency).to.have.been.eqls('R$0.00');
+    });
   });
 });
