@@ -1,15 +1,14 @@
-# Popcorn IBGE
-[![Build Status](https://travis-ci.com/dennerrondinely/popcorn-ibge.svg?branch=master)](https://travis-ci.com/dennerrondinely/popcorn-ibge)
-[![Coverage Status](https://coveralls.io/repos/github/dennerrondinely/popcorn-ibge/badge.svg?branch=master)](https://coveralls.io/github/dennerrondinely/popcorn-ibge?branch=master)
+# Popcorn Tools
+[![Build Status](https://travis-ci.com/Popcorn-BR/popcorn-tools.svg?branch=master)](https://travis-ci.com/Popcorn-BR/popcorn-tools)
+[![Coverage Status](https://coveralls.io/repos/github/Popcorn-BR/popcorn-tools/badge.svg?branch=master)](https://coveralls.io/github/Popcorn-BR/popcorn-tools?branch=master)
 
-Popcorn-ibge is a javascript library created to facilitate the use of the IBGE locale api.
 
 
 
 ## Installation
 
 ```sh
-$ npm install popcorn-ibge --save
+$ npm install popcorn-tools --save
 ```
 
 ## How to use
@@ -18,57 +17,128 @@ $ npm install popcorn-ibge --save
 
 ```js
 // to import a specific method
-import PopcornIBGE from 'popcorn-ibge';
-
-const ibge = new PopcornIBGE();
-
+import popcorn from 'popcorn-tools';
+// using  method
+popcorn.measureFormat(1000);
 ```
+
+### UMD in Browser
+
+```html
+<!-- to import non-minified version -->
+<script src="popcorn-tools.umd.js"></script>
+
+<!-- to import minified version -->
+<script src="popcorn-tools.umd.min.js"></script>
+```
+
+After that the library will be available to the Global as `PopcornTools`. Follow an example:
+
+```js
+
+
+const data = popcorn.measureFormat(1000);
+```
+
 ## Methods
 
 > Follow the methods that the library provides.
 
-### ibge.ufs()
+### measureFormat(number)
 
-> Rewind an image by calling this method.
+> Format numbers according to the unit of measurement.
 
+**Arguments**
+
+| Argument | Type    |
+|----------|---------|
+|`value`   |*number* |
 
 
 **Example**
 
 ```js
-  async function getData() {
-    const ufs = await ibge.ufs();
-    console.log(ufs);
-  };
+const data = popcorn.measureFormat(1000);
 ```
 
-### ibge.municipios()
+### popcorn.cpfValidate(cpf)
 
-> Advance an image by calling this method.
+> Valid if the number of a CPF (Individual Taxpayer Registration) is valid.
 
+**Arguments**
+
+| Argument | Type    |
+|----------|---------|
+|`cpf`     |*string* |
 
 
 **Example**
 
 ```js
-  async function getData() {
-    const municipios = await ibge.municipios('mg');
-    console.log(municipios);
-  };
+const valid = popcorn.cpfValidate(cpf);
+```
+
+### popcorn.currencyFormat(data)
+
+> Format a number for the desired currency.
+
+**Arguments**
+
+| Argument | Type    |
+|----------|---------|
+|`value`   |*number* |
+|`style`   |*string* |
+|`currency`|*string* |
+
+
+**Example**
+
+```js
+  popcorn.currencyFormat({ currency: 'BRL', style: 'pt-BR', value: 10 })
+```
+
+### popcorn.filter(array, value, param)
+
+> Filter an array of objects based on a string.
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`array`   |*array*  | 'Any search query'|
+|`value`   |*string*  | 'Any search query'|
+|`param`   |*string*  | 'Any search query'|
+
+
+**Example**
+
+```js
+const data = [
+  { value: 'Banana' },
+  { value: 'Maçã' },
+  { value: 'Laranja' },
+  { value: 'Morango' },
+  { value: 'Abacaxi' },
+  { value: 'Mamão' },
+];
+const dataFilter = popcorn.filter(data, 'mam', 'value');
 ```
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/Popcorn-BR/popcorn-tools/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/Popcorn-BR/popcorn-tools/releases).
 
 ## Authors
 
-| ![Denner Rondinely](https://avatars0.githubusercontent.com/u/14242874?s=460&v=4)|
+| ![Denner Rondinely](https://avatars1.githubusercontent.com/u/14242874?s=460&u=bb7141e15c2ce0a34e2ca36ff4398eb774f4c99d&v=4)|
 |:---------------------:|
 |  [Denner Rondinely](https://github.com/dennerrondinely/)   |
 
-See also the list of [contributors](https://github.com/dennerrondinely/popcorn-slide/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/Popcorn-BR/popcorn-tools/graphs/contributors) who participated in this project.
 
 ## License
 

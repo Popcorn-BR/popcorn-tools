@@ -7,13 +7,13 @@ chai.use(sinonChai);
 
 describe('Filter', () => {
   const data = [
-    {value: 'Banana'},
-    {value: 'Maçã'},
-    {value: 'Laranja'},
-    {value: 'Morango'},
-    {value: 'Abacaxi'},
-    {value: 'Mamão'},
-  ]
+    { value: 'Banana' },
+    { value: 'Maçã' },
+    { value: 'Laranja' },
+    { value: 'Morango' },
+    { value: 'Abacaxi' },
+    { value: 'Mamão' },
+  ];
 
   describe('smoke tests', () => {
     it('should exist the filter method', () => {
@@ -24,7 +24,7 @@ describe('Filter', () => {
   describe('Filter', () => {
     it('should call filter by m', () => {
       const dataFilter = filter(data, 'mam', 'value');
-      expect(dataFilter).to.have.been.eqls([{ value: "Mamão" }]);
+      expect(dataFilter).to.have.been.eqls([{ value: 'Mamão' }]);
     });
 
     it('should call filter not valid value', () => {

@@ -7,11 +7,11 @@ const ranges = [
   { divider: 1e3, suffix: 'k' },
 ];
 
-export default function measureFormat(n = 0) {
+export default function measureFormat(value = 0) {
   for (let i = 0; i < ranges.length; i += 1) {
-    if (n >= ranges[i].divider) {
-      return (n / ranges[i].divider).toFixed(0) + ranges[i].suffix;
+    if (value >= ranges[i].divider) {
+      return (value / ranges[i].divider).toFixed(0) + ranges[i].suffix;
     }
   }
-  return n.toString();
+  return value.toString();
 }
