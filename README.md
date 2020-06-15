@@ -44,7 +44,7 @@ const data = popcorn.measureFormat(1000);
 
 > Follow the methods that the library provides.
 
-### measureFormat(value)
+### popcorn.measureFormat(value)
 
 > Format numbers according to the unit of measurement.
 
