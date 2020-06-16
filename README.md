@@ -1,6 +1,7 @@
 # Popcorn Tools
 [![Build Status](https://travis-ci.com/Popcorn-BR/popcorn-tools.svg?branch=master)](https://travis-ci.com/Popcorn-BR/popcorn-tools)
 [![Coverage Status](https://coveralls.io/repos/github/Popcorn-BR/popcorn-tools/badge.svg?branch=master)](https://coveralls.io/github/Popcorn-BR/popcorn-tools?branch=master)
+![npm](https://img.shields.io/npm/dy/popcorn-tools)
 
 
 
