@@ -78,6 +78,15 @@ const data = popcorn.measureFormat(1000);
 ```js
 const valid = popcorn.cpfValidate(cpf);
 ```
+### popcorn.mobileCheck()
+
+> checks if the browser is on a mobile device..
+
+**Example**
+
+```js
+const check = popcorn.mobileCheck();
+```
 
 ### popcorn.currencyFormat(data)
 
