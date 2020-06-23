@@ -11,7 +11,7 @@
     "isolatedModules": true,
     "moduleResolution": "node",
     "types": [
-      "vue-router/types"
+      "popcorn-tools/types"
     ]
   },
   "include": [
