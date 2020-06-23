@@ -1,6 +1,4 @@
-/* eslint-disable max-len */
-/* eslint-disable no-useless-escape */
-global.mobilecheck = () => {
+const mobilecheck = () => {
   let check = false;
   ((a) => {
     if (
@@ -11,10 +9,7 @@ global.mobilecheck = () => {
         a.substr(0, 4)
       )
     ) { check = true; }
-  })(global.navigator.userAgent || global.navigator.vendor || global.opera);
+  })(window.navigator.userAgent || window.navigator.vendor);
   return check;
 };
-
-const mobilecheck = () => global.mobilecheck();
-
 export default mobilecheck;

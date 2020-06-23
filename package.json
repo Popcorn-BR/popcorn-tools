@@ -1,69 +1,34 @@
 {
   "name": "popcorn-tools",
-  "version": "0.2.1",
+  "version": "0.3.2",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.ts",
+  "browser": "dist/index.js",
+  "typings": "dist/types/index.d.ts",
   "scripts": {
-    "clear": "rimraf lib",
-    "build": "npm run clear && ./node_modules/.bin/babel --out-dir lib src",
-    "build:watch": "npm run build -- --watch",
-    "build:umd": "./node_modules/.bin/webpack --output-filename popcorn-tools.umd.js",
-    "build:umd:min": "./node_modules/.bin/webpack --output-filename popcorn-tools.umd.min.js -p",
-    "build:all": "npm run build && npm run build:umd && npm run build:umd:min",
-    "lint": "./node_modules/.bin/eslint src/*.js",
-    "prepush": "npm run lint",
-    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
-    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
-    "test:coverage": "nyc npm test",
-    "coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | coveralls",
-    "prepublish": "npm run build:all"
+    "prepublish": "npm run build",
+    "build": "npx tsc --build tsconfig.json",
+    "test": "exit"
   },
-  "files": [
-    "dist",
-    "lib"
+  "author": "Dênner Rondinely <denner.rondinely@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "Tools",
+    "Utils",
+    "popcorn-tools"
   ],
-  "nyc": {
-    "reporter": [
-      "text",
-      "html"
-    ],
-    "exclude": [
-      "tests/**"
-    ]
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dennerrondinely/popcorn-tools.git"
+    "url": "git+https://github.com/Popcorn-BR/popcorn-tools.git"
   },
-  "keywords": [],
-  "author": "Dênner Rondinely <denner.rondinely@gmail.com> (https://dennerrondinely.com.br/)",
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dennerrondinely/popcorn-tools/issues"
+    "url": "https://github.com/Popcorn-BR/popcorn-tools/issues"
   },
-  "homepage": "https://github.com/dennerrondinely/popcorn-tools#readme",
+  "homepage": "https://github.com/Popcorn-BR/popcorn-tools#readme",
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-preset-env": "^1.3.2",
-    "babel-register": "^6.24.0",
-    "chai": "^3.5.0",
-    "coveralls": "^2.13.0",
-    "eslint": "^4.18.2",
-    "eslint-config-airbnb": "^12.0.0",
-    "eslint-plugin-import": "^2.0.1",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.4.1",
-    "husky": "^0.11.9",
-    "mocha": "^3.2.0",
-    "node-fetch": "^1.6.3",
-    "nyc": "^10.2.0",
-    "rimraf": "^2.6.1",
-    "sinon": "^6.1.3",
-    "sinon-chai": "^3.2.0",
-    "webpack": "^2.4.1"
-  },
-  "dependencies": {
-    "babel-polyfill": "^6.26.0"
+    "@types/jest": "^25.2.1",
+    "jest": "^25.3.0",
+    "ts-jest": "^25.3.1",
+    "typescript": "^3.8.2"
   }
 }
