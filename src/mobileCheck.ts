@@ -1,4 +1,4 @@
-const mobilecheck = () => {
+export const mobilecheck = () => {
   let check = false;
   ((a) => {
     if (
@@ -12,4 +12,3 @@ const mobilecheck = () => {
   })(window.navigator.userAgent || window.navigator.vendor);
   return check;
 };
-export default mobilecheck;

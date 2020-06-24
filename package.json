@@ -1,34 +1,44 @@
 {
   "name": "popcorn-tools",
-  "version": "0.3.2",
+  "version": "0.4.1",
   "description": "",
-  "main": "src/index.ts",
-  "browser": "dist/index.js",
-  "typings": "dist/types/index.d.ts",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "jsnext:main": "build/index.es.js",
   "scripts": {
-    "prepublish": "npm run build",
-    "build": "npx tsc --build tsconfig.json",
-    "test": "exit"
+    "build": "rollup -c",
+    "lint": "standard",
+    "lint:fix": "lint --fix",
+    "format": "prettier-standard --format",
+    "test": "jest --coverage"
   },
-  "author": "Dênner Rondinely <denner.rondinely@gmail.com>",
-  "license": "MIT",
-  "keywords": [
-    "Tools",
-    "Utils",
-    "popcorn-tools"
+  "files": [
+    "build"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Popcorn-BR/popcorn-tools.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Popcorn-BR/popcorn-tools/issues"
-  },
-  "homepage": "https://github.com/Popcorn-BR/popcorn-tools#readme",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "@types/jest": "^25.2.1",
-    "jest": "^25.3.0",
-    "ts-jest": "^25.3.1",
-    "typescript": "^3.8.2"
+    "@types/jest": "^26.0.3",
+    "jest": "^26.1.0",
+    "rollup": "^2.18.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.2",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "standard": "^14.3.4",
+    "standard-prettier": "^1.0.1",
+    "ts-jest": "^26.1.1",
+    "typescript": "^3.9.5"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
+  "standard": {
+    "ignore": [
+      "node_modules/",
+      "build/"
+    ]
   }
 }
