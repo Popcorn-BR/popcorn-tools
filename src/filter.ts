@@ -1,7 +1,7 @@
 interface ArrayData {
   value: string
 }
-export default function filter(array: ArrayData[], value: string) {
+export const filter = (array: ArrayData[], value: string) => {
   return array
     ? array.filter(
       element =>
