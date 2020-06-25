@@ -1,4 +1,4 @@
-export const  validateCpf = (cpf: string) => {
+export const  validateCpf = (cpf: string): boolean => {
   let sum;
   let calc;
   const cpfSerialized = cpf.replace(/_|\.|-/g, '');

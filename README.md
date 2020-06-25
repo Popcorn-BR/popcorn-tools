@@ -1,9 +1,5 @@
 # Popcorn Tools
-[![Build Status](https://travis-ci.com/Popcorn-BR/popcorn-tools.svg?branch=master)](https://travis-ci.com/Popcorn-BR/popcorn-tools)
-[![Coverage Status](https://coveralls.io/repos/github/Popcorn-BR/popcorn-tools/badge.svg?branch=master)](https://coveralls.io/github/Popcorn-BR/popcorn-tools?branch=master)
 ![npm](https://img.shields.io/npm/dy/popcorn-tools)
-
-
 
 
 ## Installation
@@ -18,34 +14,16 @@ $ npm install popcorn-tools --save
 
 ```js
 // to import a specific method
-import popcorn from 'popcorn-tools';
+import { measureFormat } from 'popcorn-tools';
 // using  method
-popcorn.measureFormat(1000);
-```
-
-### UMD in Browser
-
-```html
-<!-- to import non-minified version -->
-<script src="popcorn-tools.umd.js"></script>
-
-<!-- to import minified version -->
-<script src="popcorn-tools.umd.min.js"></script>
-```
-
-After that the library will be available to the Global as `PopcornTools`. Follow an example:
-
-```js
-
-
-const data = popcorn.measureFormat(1000);
+measureFormat(1000);
 ```
 
 ## Methods
 
 > Follow the methods that the library provides.
 
-### popcorn.measureFormat(value)
+### measureFormat(value)
 
 > Format numbers according to the unit of measurement.
 
@@ -59,10 +37,10 @@ const data = popcorn.measureFormat(1000);
 **Example**
 
 ```js
-const data = popcorn.measureFormat(1000);
+const data = measureFormat(1000);
 ```
 
-### popcorn.cpfValidate(cpf)
+### validateCpf(cpf)
 
 > Valid if the number of a CPF (Individual Taxpayer Registration) is valid.
 
@@ -76,19 +54,19 @@ const data = popcorn.measureFormat(1000);
 **Example**
 
 ```js
-const valid = popcorn.cpfValidate(cpf);
+const valid = validateCpf(cpf);
 ```
-### popcorn.mobileCheck()
+### mobileCheck()
 
 > checks if the browser is on a mobile device..
 
 **Example**
 
 ```js
-const check = popcorn.mobileCheck();
+const check = mobileCheck();
 ```
 
-### popcorn.currencyFormat(data)
+### currencyFormat(data)
 
 > Format a number for the desired currency.
 
@@ -104,10 +82,28 @@ const check = popcorn.mobileCheck();
 **Example**
 
 ```js
-  popcorn.currencyFormat({ currency: 'BRL', style: 'pt-BR', value: 10 })
+  currencyFormat({ currency: 'BRL', style: 'pt-BR', value: 10 })
 ```
 
-### popcorn.filter(array, value, param)
+### years(number, number)
+
+> Return an array of years.
+
+**Arguments**
+
+| Argument | Type    |
+|----------|---------|
+|`after`   |*number* |
+|`before`  |*number* |
+
+
+**Example**
+
+```js
+  years(10, 5)
+```
+
+### filter(array, value, param)
 
 > Filter an array of objects based on a string.
 
@@ -131,7 +127,7 @@ const data = [
   { value: 'Abacaxi' },
   { value: 'Mamão' },
 ];
-const dataFilter = popcorn.filter(data, 'mam', 'value');
+const dataFilter = filter(data, 'mam', 'value');
 ```
 
 ## Contributing
