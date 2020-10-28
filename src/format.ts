@@ -3,29 +3,52 @@ import { ICurrency, ILocale } from "./types/interfaces";
 
 type Params = {
   value: number;
-  locale: ILocale;
-  currency: ICurrency;
+  locales: string | ILocale;
+  currencys: ICurrency | string;
 };
 
 export const currencyFormat = ({
   value = isRequired(ErrorMessages.parameter),
-  locale = isRequired(ErrorMessages.parameter),
-  currency = { currency: "", country: "" },
+  locales = isRequired(ErrorMessages.parameter),
+  currencys = { currency: "", country: "" },
 }: Params): string => {
-  const { locale: l } = locale;
-  const { currency: c } = currency;
-  const { format } = new Intl.NumberFormat(l, {
+  let locale;
+  let currency;
+
+  if (typeof locales === "string") {
+    locale = locales;
+  } else {
+    const { locale: l } = locales;
+    locale = l;
+  }
+
+  if (typeof currencys === "string") {
+    locale = currencys;
+  } else {
+    const { currency: c } = currencys;
+    currency = c;
+  }
+
+  const { format } = new Intl.NumberFormat(locale, {
     style: "currency",
-    currency: c,
+    currency,
   });
   return format(value);
 };
 
 export const dateFormat = ({
   value = isRequired(ErrorMessages.parameter),
-  locale = isRequired(ErrorMessages.parameter),
+  locales = isRequired(ErrorMessages.parameter),
 }: Params): string => {
-  const { locale: l } = locale;
-  const { format } = new Intl.DateTimeFormat(l);
+  let locale;
+
+  if (typeof locales === "string") {
+    locale = locales;
+  } else {
+    const { locale: l } = locales;
+    locale = l;
+  }
+
+  const { format } = new Intl.DateTimeFormat(locale);
   return format(value);
 };
