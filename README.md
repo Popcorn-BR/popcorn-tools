@@ -130,6 +130,82 @@ const data = [
 const dataFilter = filter(data, 'mam', 'value');
 ```
 
+### findOrDefault(value, conditions)
+
+> Return an array of years.
+
+**Arguments**
+
+| Argument     | Type    |
+|--------------|---------|
+|`value`       |*string* |
+|`conditions`  |*object* |
+
+
+**Example**
+
+```js
+  const value = 'error';
+
+  const result = findOrDefault(value, {
+    success: 'Successs',
+    error: 'Error',
+    _: 'Default'
+  });
+```
+
+```ts
+  enum MessagePatterns {
+    SUCCESS,
+    ERROR
+  }
+
+  const value = 'error';
+
+  const result = findOrDefault(value, {
+    [MessagePatterns.SUCCESS]: 'Successs',
+    [MessagePatterns.ERROR]: 'Error',
+    _: 'Default'
+  });
+```
+
+### to(promise)
+
+> Return an array of years.
+
+**Arguments**
+
+| Argument  | Type     |
+|-----------|----------|
+|`promise`  |*Promise* |
+
+
+**Example**
+
+```js
+  const [result, error] = await to(promise);
+```
+
+### toList(list, index)
+
+> Return an array of years.
+
+**Arguments**
+
+| Argument   | Type    |
+|------------|---------|
+|`list`      |*Array*  |
+|`index`     |*string* |
+
+
+**Example**
+
+```js
+  const list = [{ name: 'Itadori', age: 15 }, { name: 'Megumi', age: 15 }];
+  
+  const nameList = toList(list, 'name');
+```
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://github.com/Popcorn-BR/popcorn-tools/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
