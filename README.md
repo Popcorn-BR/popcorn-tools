@@ -132,7 +132,7 @@ const dataFilter = filter(data, 'mam', 'value');
 
 ### findOrDefault(value, conditions)
 
-> Return an array of years.
+> Return a condition value or default value.
 
 **Arguments**
 
@@ -171,7 +171,7 @@ const dataFilter = filter(data, 'mam', 'value');
 
 ### to(promise)
 
-> Return an array of years.
+> Return an array with result and error.
 
 **Arguments**
 
@@ -188,7 +188,7 @@ const dataFilter = filter(data, 'mam', 'value');
 
 ### toList(list, index)
 
-> Return an array of years.
+> Return a list with select index.
 
 **Arguments**
 
@@ -202,7 +202,7 @@ const dataFilter = filter(data, 'mam', 'value');
 
 ```js
   const list = [{ name: 'Itadori', age: 15 }, { name: 'Megumi', age: 15 }];
-  
+
   const nameList = toList(list, 'name');
 ```
 
