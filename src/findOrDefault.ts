@@ -3,7 +3,7 @@ type Conditions = { [key: string]: string } & { _?: string };
 type FindOrDefaultReturn = string | boolean;
 type FindOrDefaultParams = (value: Value, conditions: Conditions) => FindOrDefaultReturn;
 
-const findOrDefault: FindOrDefaultParams = (value = null, conditions = {}) => {
+export const findOrDefault: FindOrDefaultParams = (value = null, conditions = {}) => {
   try {
     if (value && conditions[value]) {
       return conditions[value];
@@ -13,5 +13,3 @@ const findOrDefault: FindOrDefaultParams = (value = null, conditions = {}) => {
     return conditions?._ ?? false;
   }
 };
-
-export default findOrDefault;
