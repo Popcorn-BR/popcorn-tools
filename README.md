@@ -156,17 +156,52 @@ const dataFilter = filter(data, 'mam', 'value');
 
 ```ts
   enum MessagePatterns {
-    SUCCESS,
-    ERROR
+    SUCCESS = 'SUCCESS',
+    ERROR = 'ERROR'
   }
 
-  const value = 'error';
+  const value = 'ERROR';
 
   const result = findOrDefault(value, {
     [MessagePatterns.SUCCESS]: 'Successs',
     [MessagePatterns.ERROR]: 'Error',
     _: 'Default'
   });
+
+  console.log(result) // Error
+```
+
+```ts
+  enum MessagePatterns {
+    SUCCESS = 'SUCCESS',
+    ERROR = 'ERROR'
+  }
+
+  const value = 'ERROR_MESSAGE';
+
+  const result = findOrDefault(value, {
+    [MessagePatterns.SUCCESS]: 'Successs',
+    [MessagePatterns.ERROR]: 'Error',
+    _: 'Default'
+  });
+
+  console.log(result) // Default
+```
+
+```ts
+  enum MessagePatterns {
+    SUCCESS = 'SUCCESS',
+    ERROR = 'ERROR'
+  }
+
+  const value = 'ERROR_MESSAGE';
+
+  const result = findOrDefault(value, {
+    [MessagePatterns.SUCCESS]: 'Successs',
+    [MessagePatterns.ERROR]: 'Error'
+  });
+
+  console.log(result) // false
 ```
 
 ### to(promise)
@@ -183,7 +218,7 @@ const dataFilter = filter(data, 'mam', 'value');
 **Example**
 
 ```js
-  const [result, error] = await to(promise);
+  const [result, error] = await to(api.getUsers());
 ```
 
 ### toList(list, index)
@@ -204,6 +239,8 @@ const dataFilter = filter(data, 'mam', 'value');
   const list = [{ name: 'Itadori', age: 15 }, { name: 'Megumi', age: 15 }];
 
   const nameList = toList(list, 'name');
+
+  console.log(nameList) // ['Itadori', 'Megumi']
 ```
 
 ## Contributing
