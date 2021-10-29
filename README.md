@@ -1,5 +1,5 @@
 # Popcorn Tools
-![npm](https://img.shields.io/npm/dy/popcorn-tools)
+![npm](https://img.shields.io/npm/dt/popcorn-tools)
 
 
 ## Installation
